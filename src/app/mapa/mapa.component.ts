@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { url } from 'inspector';
 import { SkanderbegService } from '../services/skanderbeg.service';
 import { SpreadsheetsService } from '../services/spreadsheets.service';
 import { Country } from '../shared/clases/Country';
@@ -75,7 +76,7 @@ export class MapaComponent implements OnInit {
                 if(country){
                   country.fillProvincesLayer(layer);
                   layer.setStyle({
-                    fillColor:country.hexcolor,
+                    background:country.hexcolor,
                     fillOpacity:0.8,
                     weight:0.5,
                     color: country.hexcolor
@@ -119,8 +120,9 @@ export class MapaComponent implements OnInit {
       selectedCountry.selected = true;
       selectedCountry.provinces.forEach(layer => {
         layer.setStyle({
+            background:layer.options.background,
             fillOpacity: 1,
-            fillColor: "black"
+            fillColor: "url('#diagonalPattern')",
         });
       });
     }

@@ -9,12 +9,14 @@ import { HomeComponent } from './home/home.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { API_KEY, GoogleSheetsDbService } from 'ng-google-sheets-db';
+import { CustomSvgComponent } from './custom-svg/custom-svg.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MapaComponent,
+    CustomSvgComponent,
   ],
   imports: [
     BrowserModule,
