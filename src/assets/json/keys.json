@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "estrategasapi",
+  "private_key_id": "59bd88f3a3ed421d88763f500feab64b34abcac8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCTXTa8hEBAtW6P\n3+2W16xzQAAANtupc26Ng/qe1Bi4LFz7vjl/3dSATafyjtd6m1bvcO9KkPeqCPwF\nNbVHIvxFyo4slIaekfAvPqtwXItFUZqOfTXIDPWoC81LS7luE3drO8sOEx8Lou+M\nfoHjL97aIQOJDFWF6e/A/ba3VKNx/eOth0a881vCrcDr6iXItaMkfZxv3y9BLjdA\nN3KQYYvXuG1lwdJA5aqNX9atHX42bId0B2All7AIfrlbByCZG2F4STNj2nNz4647\nnvdZfKI80awztgcz613FCbC8aX7wvelOkONX4/4OlK0JYYGEU+m1WP+xHWJEYupY\nxSzuKrxPAgMBAAECggEABIcJHvqbNMG+P1pcZNWEfVf6iAcncYnT3DIxWX7fsYzf\nYHakMpsAo95+6fNciG5MWffoyiwxB77V610OkDxxbr195726cxW9wN3Wi5G0T7Fl\no7oSFG7df0e5i3YsoMalVRyVrP2GZyee33ylhfLbEG2SO7wuxnn8/TtuSSynBuH/\nkSNFvb3KLRQ43znp50d+8sfP7N0nJ5q7vrOcHlnA5/qwEH96I3nmjeev2ZgMQ4ge\ndigzk7IviDvMtDPgbRxoPHghjrJwcdfwYbYskxrhXlbz/ZfZYL4acuG3SZdNE1M7\nCfWZdI/KIijz9lAap0aepKEJ78pKfz9mnvmvZzK0KQKBgQDMIbXIupUI2JdeRgmK\ntRI94p5eiwciZSo2T692K/ev2kH35ic5wRhV+0QOdYQAxa548B6kl+sB12sF+eJa\nRhbjlQilAYssKE5Zc/TBUF/roc+tvYde7pYBwFPozgjrjFf9uqeKlSKl39hsG3fU\nFcYeaS3MwtpNhmTOqnejRtnH9wKBgQC4zufyuUILmsOPBunvKA6snL7LYV6QWtqT\nGOrMRiuG91kVa1HKJ278vY9y3oy694cRmFuz39abs+1gGe8av32dHeGkNfAIAZoB\nvLk9sTMHsall0nGqKpKNy9tUcoemkxV07ioi5U6Ct8iB3XCD/7cP2+EhaCl9Lylq\nptN/PigIaQKBgCiPci1mVYKidsE2rWKwQ+WkB8/FVC+TZmXQQ475gYehmIYHZzfk\nlE9RU96Dny0AGoDRRWVzAjElepB/bGh/kMC7tjIDMoIdqCPCFJnsvIJ3bmqZRDKq\nuYezjXiup7sV8c3qrqusomvPJJOmiZLMmMcmIwGSngnVcGZYHNmGlHNVAoGAOWnO\nFVIIeqJx7pUvR+Uh6e4oN/bf8ejHzrsG9r819pARVN4qYqsth8c8MWuCPPN5OrYi\nhxcbDPQw4pIr/htPYuhNmT5Ie7RDrBZ9VfUe7Vz8S229cigXr4WNdga+rbk0CUeU\nP5MNeP6vg+jPc7KVpI+iuUYq3YExVLjPK9Cbj0ECgYEAkwk8DM/84Nl7EQUZ9oEO\nW0qfNH2JyuvzmuQNbTtNLSuq6fSSo/xqDi9eEmeEMVn9v9JV8/FJs1qop2nw/3CK\nkb26iVJ3Y3zNcOzYE/+1MdOgIJRvdcsjeGK2zeW2aGVmXWKFvWgvh5HQ7VNe6Zkb\nt00Mh1LHuJwPuJzJ40A4Ucc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cuenta-estrategas@estrategasapi.iam.gserviceaccount.com",
+  "client_id": "104926691640807609288",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cuenta-estrategas%40estrategasapi.iam.gserviceaccount.com"
+}

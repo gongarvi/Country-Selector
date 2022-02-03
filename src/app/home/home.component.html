@@ -1,0 +1,15 @@
+<div *ngIf="!conectado && !loading">
+    <h1>Conectate con discord para avanzar</h1>
+    <a href="https://discord.com/api/oauth2/authorize?client_id=906860823190831145&redirect_uri=http%3A%2F%2Flocalhost%3A4200&response_type=code&scope=identify%20email%20connections">DISCORD</a>
+</div>
+<div *ngIf="conectado && !loading">
+    <form (ngSubmit)="submit()" [formGroup]="formControl">
+        <div class="form-control">
+            <label for="documentId">Id del GM</label>
+            <input type="text" id="documentId" name="documentId" formControlName="documentId" placeholder="Introduce el documento proporcionado por el GM">
+        </div>
+        <div class="form-control">
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+</div>
