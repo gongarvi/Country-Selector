@@ -35,8 +35,7 @@
               "./node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": [
-              "src/assets/js/provinces_1.31.js",
-              "src/assets/js/google_api.js"
+              "src/assets/js/provinces_1.31.js"
             ]
           },
           "configurations": {
