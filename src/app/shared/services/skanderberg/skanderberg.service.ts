@@ -1,14 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'leaflet';
-import { forkJoin, Observable } from 'rxjs';
-import { Country } from '../shared/clases/Country';
+import { forkJoin } from 'rxjs';
+import { Country } from '../../clases/Country';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SkanderbegService {
-
+export class SkanderbergService {
   private url = "https://skanderbeg.pm/api.php?";
   private initialSave = "7d6187";
   private key = "ae85ec2021cc9fe8a2040ae6b944a564"
@@ -38,11 +36,9 @@ export class SkanderbegService {
               countries.push(country);
             }
           }
-          console.log(data.provincesIds)
           localStorage.setItem("provincesData", JSON.stringify(correctValues))
           localStorage.setItem("countriesData", JSON.stringify(countries))
           localStorage.setItem("provincesIds", JSON.stringify(data.provincesIds))
-          console.log
           resolve("");
         }
       )

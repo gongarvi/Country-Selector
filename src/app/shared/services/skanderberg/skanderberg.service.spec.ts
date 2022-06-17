@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SpreadsheetsService } from './spreadsheets.service';
+import { SkanderbergService } from './skanderberg.service';
 
-describe('SpreadsheetsService', () => {
-  let service: SpreadsheetsService;
+describe('SkanderbergService', () => {
+  let service: SkanderbergService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SpreadsheetsService);
+    service = TestBed.inject(SkanderbergService);
   });
 
   it('should be created', () => {

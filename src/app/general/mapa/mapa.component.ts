@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SkanderbegService } from '../services/skanderbeg.service';
-import { SpreadsheetsService } from '../services/spreadsheets.service';
-import { Country } from '../shared/clases/Country';
+import { Country } from 'src/app/shared/clases/Country';
+import { SkanderbergService } from 'src/app/shared/services/skanderberg/skanderberg.service';
 declare var provinces:any;
 declare var L:any;
 
@@ -22,8 +21,7 @@ export class MapaComponent implements OnInit {
   map:any;
 
   constructor(
-    private skanderbeg:SkanderbegService,
-    private spreadSheet:SpreadsheetsService,
+    private skanderbeg:SkanderbergService,
     private route:ActivatedRoute,
     private router:Router
   ) { }
@@ -37,7 +35,6 @@ export class MapaComponent implements OnInit {
       this.router.navigate([""]);
     }else{
       let documentId = history.state.documentId;
-      
     }
     this.prepareMap();
   }

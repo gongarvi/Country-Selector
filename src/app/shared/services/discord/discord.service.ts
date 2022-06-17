@@ -1,11 +1,10 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'leaflet';
-import { catchError, Observable } from 'rxjs';
-import { DiscordUser, TokenResponse } from '../shared/interfaces/discordResponse';
+import { map, Observable } from 'rxjs';
+import { DiscordUser, TokenResponse } from '../../interfaces/discordResponse';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any'
 })
 export class DiscordService {
 
@@ -13,14 +12,17 @@ export class DiscordService {
   private CLIENT_ID = '906860823190831145'
   private CLIENT_SECRET = 'fLmGkDCCjCkG9LOaHQgHx9196lKjGPU4'
   private REDIRECT_URI = 'http://localhost:4200'
-
+  private token:string;
+  private tokenAccesType:string;
   constructor(
     private http:HttpClient
-  ) { }
+  ) {
+    this.token = sessionStorage.getItem("token") || "";
+    this.tokenAccesType = sessionStorage.getItem("token_type") || "";
+  }
 
   hasSessionSaved():boolean{
-    let session = sessionStorage.getItem("token");
-    return session!=null;
+    return this.token !== "";
   }
 
   changeCodeToken(code:string):Observable<TokenResponse>{
@@ -34,24 +36,23 @@ export class DiscordService {
     params = params.append("code", code);
     params = params.append("redirect_uri", this.REDIRECT_URI);
 
-    var request = this.http.post<TokenResponse>(this.API_ENDPOINT + "/oauth2/token", params, {headers: headers});
-    request.subscribe(
-      response=>{
-        sessionStorage.setItem("token", response.access_token);
-        sessionStorage.setItem("token_type", response.token_type)
-      }
+    var request = this.http.post<TokenResponse>(this.API_ENDPOINT + "/oauth2/token", params, {headers: headers})
+    .pipe(
+      map(response=>{
+        this.token = response.access_token;
+        this.tokenAccesType = response.token_type;
+        sessionStorage.setItem("token", this.token);
+        sessionStorage.setItem("token_type", this.tokenAccesType);
+        return response;
+      })
     );
     return request;
   }
 
-  getCurrentUser():Observable<DiscordUser>|null{
-    var token:string | null = sessionStorage.getItem("token"),
-    token_type = sessionStorage.getItem("token_type"),
-    headers = new HttpHeaders({'Authorization': `${token_type} ${token}`});
-    if(headers){
-      return this.http.get<DiscordUser>(this.API_ENDPOINT+"/users/@me", {headers: headers});
-    }
-    return null;
+  getCurrentUser():Observable<DiscordUser>{
+    let headers = new HttpHeaders({'Authorization': `${this.tokenAccesType} ${this.token}`});
+    return this.http.get<DiscordUser>(this.API_ENDPOINT+"/users/@me", {headers: headers});
+    
   }
 
   getUserAvatar(user_id:number, user_banner:string):Promise<string|ArrayBuffer>{
@@ -71,3 +72,4 @@ export class DiscordService {
     });
   }
 }
+

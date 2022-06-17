@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup,FormsModule,ReactiveFormsModule,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DiscordService } from '../services/discord.service';
+import { DiscordService } from 'src/app/shared/services/discord/discord.service';
 
 
 @Component({
@@ -15,14 +15,18 @@ export class HomeComponent implements OnInit {
   loading:boolean = true;
 
 
-  formControl!:UntypedFormGroup;
+  formControl:FormGroup;
 
   constructor(
     private router:ActivatedRoute,
     private route:Router,
     private discordService:DiscordService,
-    private formBuilder:UntypedFormBuilder
-  ) { }
+    private formBuilder:FormBuilder
+  ) {
+    this.formControl = this.formBuilder.group({
+      documentId: new FormControl("", [Validators.required, Validators.minLength(2)])
+    })
+  }
   ngOnInit():void{
     if(this.discordService.hasSessionSaved()){
       this.startDiscordSession();
@@ -44,14 +48,10 @@ export class HomeComponent implements OnInit {
         }
       });
     }
-
-    this.formControl = this.formBuilder.group({
-      documentId: new UntypedFormControl("", [Validators.required, Validators.minLength(2)])
-    })
   }
 
   startDiscordSession(){
-    this.discordService.getCurrentUser()?.subscribe(
+    this.discordService.getCurrentUser().subscribe(
       async response=>{
         this.conectado = true;
         response.avatarBlob = await this.discordService.getUserAvatar(response.id, response.avatar);

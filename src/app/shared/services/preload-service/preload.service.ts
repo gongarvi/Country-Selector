@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
-import { SkanderbegService } from './skanderbeg.service';
+import { SkanderbergService } from 'src/app/shared/services/skanderberg/skanderberg.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ import { SkanderbegService } from './skanderbeg.service';
 export class PreloadService implements Resolve<any>{
 
   constructor(
-    private skanderbeg:SkanderbegService
+    private skanderbeg:SkanderbergService
   ) { }
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
