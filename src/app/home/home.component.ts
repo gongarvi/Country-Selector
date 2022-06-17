@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DiscordService } from '../services/discord.service';
 
@@ -15,13 +15,13 @@ export class HomeComponent implements OnInit {
   loading:boolean = true;
 
 
-  formControl!:FormGroup;
+  formControl!:UntypedFormGroup;
 
   constructor(
     private router:ActivatedRoute,
     private route:Router,
     private discordService:DiscordService,
-    private formBuilder:FormBuilder
+    private formBuilder:UntypedFormBuilder
   ) { }
   ngOnInit():void{
     if(this.discordService.hasSessionSaved()){
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.formControl = this.formBuilder.group({
-      documentId: new FormControl("", [Validators.required, Validators.minLength(2)])
+      documentId: new UntypedFormControl("", [Validators.required, Validators.minLength(2)])
     })
   }
 
